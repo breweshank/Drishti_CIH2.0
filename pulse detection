@@ -1,0 +1,130 @@
+// paset it in arduino ide
+
+#define USE_ARDUINO_INTERRUPTS true
+
+#include <PulseSensorPlayground.h>
+
+#define USE_ARDUINO_INTERRUPTS true
+#include <PulseSensorPlayground.h>
+
+// ----- Configuration -----
+const int PulsePin = A0;   // Signal pin
+const int LED = 3;         // Optional: LED blinks on beat
+const int Threshold = 600; // Adjust as needed (550–600)
+const int MinIBI = 400;    // Min Inter-Beat Interval (ms) = max 150 BPM
+
+PulseSensorPlayground pulseSensor;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(LED, OUTPUT);
+
+  pulseSensor.analogInput(PulsePin);
+  pulseSensor.blinkOnPulse(LED);     // Blink LED on pulse
+  pulseSensor.setThreshold(Threshold);
+
+  if (pulseSensor.begin()) {
+    Serial.println("PulseSensor initialized.");
+  }
+}
+
+void loop() {
+  int bpm = pulseSensor.getBeatsPerMinute();
+  static unsigned long lastBeat = 0;
+  unsigned long now = millis();
+
+  if (pulseSensor.sawStartOfBeat()) {
+    unsigned long ibi = now - lastBeat;
+
+    if (ibi > MinIBI) {
+      Serial.print("♥ BPM: ");
+      Serial.println(bpm);
+      lastBeat = now;
+    } else {
+      Serial.println("False beat ignored.");
+    }
+  }
+
+  delay(20);
+}
+
+
+// ----- Configuration -----
+
+const int PulsePin = A0;   // Signal pin
+
+const int LED = 3;         // Optional: LED blinks on beat
+
+const int Threshold = 600; // Adjust as needed (550–600)
+
+const int MinIBI = 400;    // Min Inter-Beat Interval (ms) = max 150 BPM
+
+
+
+PulseSensorPlayground pulseSensor;
+
+
+
+void setup() {
+
+  Serial.begin(9600);
+
+  pinMode(LED, OUTPUT);
+
+
+
+  pulseSensor.analogInput(PulsePin);
+
+  pulseSensor.blinkOnPulse(LED);     // Blink LED on pulse
+
+  pulseSensor.setThreshold(Threshold);
+
+
+
+  if (pulseSensor.begin()) {
+
+    Serial.println("PulseSensor initialized.");
+
+  }
+
+}
+
+
+
+void loop() {
+
+  int bpm = pulseSensor.getBeatsPerMinute();
+
+  static unsigned long lastBeat = 0;
+
+  unsigned long now = millis();
+
+
+
+  if (pulseSensor.sawStartOfBeat()) {
+
+    unsigned long ibi = now - lastBeat;
+
+
+
+    if (ibi > MinIBI) {
+
+      Serial.print("♥ BPM: ");
+
+      Serial.println(bpm);
+
+      lastBeat = now;
+
+    } else {
+
+      Serial.println("False beat ignored.");
+
+    }
+
+  }
+
+
+
+  delay(20);
+
+}

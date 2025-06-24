@@ -135,8 +135,8 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 
 For queries, collaboration, or suggestions:
 
-📧 [teamdrishti.ai@gmail.com](mailto:teamdrishti.ai@gmail.com)
-🔗 [GitHub Issues](https://github.com/breweshank/Drishti_CIH2.0)
+📧 [teamdrishti](mailto:teamdrishti.ai@gmail.com)
+🔗 [GitHub](https://github.com/breweshank/Drishti_CIH2.0)
 
 ---
 

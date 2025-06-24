@@ -77,7 +77,7 @@ app = FastAPI()
 
 @app.middleware("http")
 async def verify_api_key(request: Request, call_next):
-    api_key = request.headers.get("X-API-KEY")
+    api_key = request.headers.get("DRISHTI_API_KEY")
     if api_key not in VALID_API_KEYS:
         return JSONResponse(status_code=401, content={"detail": "Invalid API Key"})
     return await call_next(request)

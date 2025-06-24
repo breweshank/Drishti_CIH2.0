@@ -1,0 +1,17 @@
+{
+  "transcript": [
+    {
+      "turn": 1,
+      "user": "address tree how are you",
+      "drishti": "I am well thank you, happy to hear that. Are you a beginner or an advanced learner of English?"
+    },
+    {
+      "turn": 2,
+      "user": "end the call stop"
+    }
+  ],
+  "depression_analysis": {
+    "class": "No Depression",
+    "confidence": 0.34392333030700684
+  }
+}
